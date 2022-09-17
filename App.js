@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Dimensions, View } from "react-native";
+
+import appStyle from "./style/appCss";
+import Controller from "./component/layout/controller";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>App_Financial_Management - Mobile App!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const widthScreen = Dimensions.get("window").width;
+    const heightScreen = Dimensions.get("window").height;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    return (
+        <View style={[appStyle.container, appStyle.greyBG]}>
+            <Controller widthScreen={widthScreen} heightScreen={heightScreen} />
+        </View>
+    );
+}
